@@ -28,8 +28,8 @@ const TUTOR_SECRET_CODE = 'Tutor2042!';
 
 // IMPORTANT: For local development, replace the placeholders below.
 // For production (Netlify), these are automatically replaced by your environment variables.
-const SUPABASE_URL = process.env.SUPABASE_URL || "YOUR_SUPABASE_URL_HERE"; // 👈 PASTE YOUR URL HERE
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || "YOUR_SUPABASE_ANON_KEY_HERE"; // 👈 PASTE YOUR KEY HERE
+const SUPABASE_URL = process.env.SUPABASE_URL || "https://wxlmghfobpfcxcgwtuhi.supabase.co"; // 👈 PASTE YOUR URL HERE
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4bG1naGZvYnBmY3hjZ3d0dWhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2ODA5OTMsImV4cCI6MjA3NjI1Njk5M30.tMeDYs2At4bEvsPNV0z2ePDT7ssiNXXw-jjgNiz9Wz8"; // 👈 PASTE YOUR KEY HERE
 
 
 // Refined Color Palette
