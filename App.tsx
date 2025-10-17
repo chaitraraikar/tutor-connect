@@ -36,7 +36,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIs
 const STATUS_COLORS: { [key in AttendanceStatus]: { bg: string; text: string; border: string; darkBg: string; } } = {
   present: { bg: 'bg-emerald-100', text: 'text-emerald-800', border: 'border-emerald-500', darkBg: 'bg-emerald-500' },
   absent: { bg: 'bg-rose-100', text: 'text-rose-800', border: 'border-rose-500', darkBg: 'bg-rose-500' },
-  holiday: { bg: 'bg-sky-100', text: 'text-sky-800', border: 'border-sky-500', darkBg: 'bg-sky-500' },
+  holiday: { bg: 'bg-rose-100', text: 'text-rose-800', border: 'border-rose-500', darkBg: 'bg-rose-500' },
   extra: { bg: 'bg-purple-100', text: 'text-purple-800', border: 'border-purple-500', darkBg: 'bg-purple-500' },
 };
 const STATUS_OPTIONS: { id: AttendanceStatus; label: string }[] = [
