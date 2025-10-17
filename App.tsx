@@ -23,10 +23,14 @@ interface AttendanceData {
 }
 
 
-// --- CONSTANTS ---
-const TUTOR_SECRET_CODE = 'Tutor2042!'; // Updated for security
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+// --- CONSTANTS & CONFIGURATION ---
+const TUTOR_SECRET_CODE = 'Tutor2042!';
+
+// IMPORTANT: For local development, replace the placeholders below.
+// For production (Netlify), these are automatically replaced by your environment variables.
+const SUPABASE_URL = process.env.SUPABASE_URL || "YOUR_SUPABASE_URL_HERE"; // 👈 PASTE YOUR URL HERE
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || "YOUR_SUPABASE_ANON_KEY_HERE"; // 👈 PASTE YOUR KEY HERE
+
 
 // Refined Color Palette
 const STATUS_COLORS: { [key in AttendanceStatus]: { bg: string; text: string; border: string; darkBg: string; } } = {
@@ -50,7 +54,8 @@ const UserGroupIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h
 
 // --- SUPABASE CLIENT ---
 let supabase: SupabaseClient | null = null;
-if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+const isConfigured = SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL !== "YOUR_SUPABASE_URL_HERE";
+if (isConfigured) {
     supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }
 
@@ -91,7 +96,8 @@ const SupabaseSetup: React.FC = () => {
                  <div className="text-left bg-slate-50 p-6 rounded-lg border">
                     <p className="font-semibold text-slate-700 mb-4">To get started, you need to connect the app to a free Supabase database:</p>
                     <ol className="list-decimal list-inside space-y-3 text-slate-600">
-                        <li>Go to <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-medium hover:underline">supabase.com</a> and create a new project.</li>
+                         <li><b>For local development:</b> Paste your Supabase URL and Key into the placeholder variables at the top of `App.tsx`.</li>
+                         <li>Go to <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-medium hover:underline">supabase.com</a> and create a new project.</li>
                         <li>In your Supabase project, go to the "SQL Editor" and run the following commands to create your tables:
                             <pre className="text-xs bg-slate-200 text-slate-800 p-3 rounded-md mt-2 overflow-x-auto">
 {`-- Create the students table
@@ -115,7 +121,7 @@ CREATE TABLE attendance (
                         </li>
                         <li>Go to "Project Settings" {'>'} "API".</li>
                         <li>Find your <b className="text-slate-700">Project URL</b> and <b className="text-slate-700">anon public API Key</b>.</li>
-                        <li>In your Netlify project, go to "Site configuration" {'>'} "Environment variables" and add them as `SUPABASE_URL` and `SUPABASE_ANON_KEY`.</li>
+                        <li><b>For Netlify deployment:</b> In your Netlify project, go to "Site configuration" {'>'} "Environment variables" and add them as `SUPABASE_URL` and `SUPABASE_ANON_KEY`.</li>
                         <li>Redeploy your Netlify site. The app will connect automatically.</li>
                     </ol>
                  </div>
