@@ -1,0 +1,5 @@
+{
+  "name": "Tutor Connect",
+  "description": "An attendance tracking application for tutors to manage student sessions and for parents to view attendance records.",
+  "requestFramePermissions": []
+}
